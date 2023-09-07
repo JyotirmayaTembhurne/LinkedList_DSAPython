@@ -1,8 +1,22 @@
-x = set()
-x.add(1)
-x.add(2)
-x.add(3)
-x.add(4)
-x.remove(1)
-print(x)
-print(x.__contains__(3))
+class MyHashSet:
+
+    def __init__(self):
+        self.hashkey = set()
+
+    def add(self, key: int) -> None:
+        self.hashkey.add(key)
+
+    def remove(self, key: int) -> None:
+        if key in self.hashkey:
+            self.hashkey.remove(key)
+
+    def contains(self, key: int) -> bool:
+        return key in self.hashkey
+        
+
+
+# Your MyHashSet object will be instantiated and called as such:
+# obj = MyHashSet()
+# obj.add(key)
+# obj.remove(key)
+# param_3 = obj.contains(key)
