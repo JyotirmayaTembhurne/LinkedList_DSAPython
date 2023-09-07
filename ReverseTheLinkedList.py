@@ -1,9 +1,30 @@
-head = [1, 2, 3, 4, 5]
-length = 0
-for j in head:
-    length += 1
-print(length)
-first = 0
-last = length
-head = head[-1::-1]
-print(head)
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
+            return head
+        else:
+            arr = list()
+            curr = head
+            while curr:
+                arr.append(curr.val)
+                curr = curr.next               
+            curr = head
+            arr = arr[-1::-1]
+            length = len(arr)
+            i = 0
+            while i<len(arr):
+                curr.val = arr[i]
+                curr = curr.next
+                i+=1
+            curr = head
+            return curr
+            
+            
+            
+                
+        
