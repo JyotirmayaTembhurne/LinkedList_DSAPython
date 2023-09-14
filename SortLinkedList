@@ -1,0 +1,22 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        current = head
+        temp = list()
+        while current:
+            temp.append(current.val)
+            current = current.next
+        current = head
+        temp.sort()
+        for value in temp:
+            current.val = value
+            current = current.next
+        temp = None
+        current = None
+        return head
+            
+        
