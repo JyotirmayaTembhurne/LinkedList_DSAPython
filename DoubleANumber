@@ -1,0 +1,26 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    import sys
+    sys.set_int_max_str_digits(10000000) 
+    def doubleIt(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        current = head
+        string = str()
+        while current:
+            string+=str(current.val)
+            current = current.next
+        doubled = str(int(string)*2)
+        newhead = ListNode(int(doubled[0]))
+        current = newhead
+        length = len(doubled)
+        for i in range(1,length):
+            node = ListNode(int(doubled[i]))
+            current.next = node
+            current = current.next
+        return newhead
+            
+
+        
