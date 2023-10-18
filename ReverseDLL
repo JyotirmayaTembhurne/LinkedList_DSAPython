@@ -1,0 +1,24 @@
+'''
+Following is the structure of the Node class already defined.
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
+        
+'''
+
+def reverseDLL(head):
+    current = head
+    temp = list()
+    while current:
+        temp.append(current.data)
+        current = current.next
+    temp = temp[-1::-1]
+    current = head
+    for value in temp:
+        current.data = value
+        current = current.next
+    temp = None
+    return head
