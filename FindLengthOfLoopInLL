@@ -1,0 +1,23 @@
+class Node:
+    def __init__(self, data=0, next=None):
+        self.val = data
+        self.next = next
+
+
+# Please do not change code above.
+
+
+def lengthOfLoop(head: Node) -> int:
+    pair = dict()    
+    current = head
+    index = 0
+    while current:
+        address = id(current)
+        if pair.get(address):
+            return index - pair[address]
+        else:
+            pair[address] = index
+            index+=1
+            current = current.next
+    return 0
+
