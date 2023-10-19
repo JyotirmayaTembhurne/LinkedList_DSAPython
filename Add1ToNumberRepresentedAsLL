@@ -1,0 +1,25 @@
+class Node:
+    def __init__(self, data=0, next=None):
+        self.data = data
+        self.next = next
+
+
+# Don't change the code above.
+
+
+def addOne(head: Node) -> Node:
+    current = head
+    number = str()
+    while current:
+        number+=str(current.data)
+        current = current.next
+    number = str(int(number)+1)
+    head = Node(int(number[0]))
+    length = len(number)
+    current = head
+    for i in range(1,length):
+        newnode = Node(int(number[i]))
+        current.next = newnode
+        current = current.next
+    return head
+
