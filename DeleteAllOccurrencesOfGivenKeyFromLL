@@ -1,0 +1,29 @@
+class Node:
+    def __init__(self, data=0, next=None, prev=None):
+        self.data = data
+        self.next = next
+        self.prev = prev
+
+
+# Don't change the code above.
+
+
+def deleteAllOccurrences(head: Node, k: int) -> Node:
+    current = head
+    arr = set()
+    if current.data == k:
+        head = head.next
+    while current:
+        arr.add(current.data)
+        current = current.next
+    current = head
+    if len(arr) == 1:
+        if arr.__contains__(k):
+            return None
+        else:
+            return head
+    while current and current.next:
+        if current.next.data == k:
+            current.next = current.next.next
+        current = current.next
+    return head
