@@ -1,0 +1,26 @@
+class Node:
+    def __init__(self, data=0, next=None, prev=None):
+        self.data = data
+        self.next = next
+        self.prev = prev
+
+
+# Don't change the code above.
+
+
+def removeDuplicates(head: Node) -> Node:
+    current = head
+    arr = set()
+    while current:
+        arr.add(current.data)
+        current = current.next
+    arr = list(arr)
+    arr.sort()
+    head = Node(arr.pop(0))
+    current = head
+    for value in arr:
+        node= Node(value)
+        current.next = node
+        current = current.next
+    return head
+
