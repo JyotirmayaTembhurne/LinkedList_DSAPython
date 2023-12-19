@@ -1,0 +1,27 @@
+if not head:
+        return None
+
+    current = head
+    while current:
+        new = Node(current.val)
+        temp = current.next
+        current.next = new
+        new.next = temp
+        current = temp
+
+    current = head
+    while current:
+        if current.random:
+            current.next.random = current.random.next
+        current = current.next.next
+
+    current = head
+    copy_head = head.next
+    copy = copy_head
+    while current:
+        current.next = current.next.next if current.next else None
+        copy.next = copy.next.next if copy.next else None
+        current = current.next
+        copy = copy.next
+
+    return copy_head
